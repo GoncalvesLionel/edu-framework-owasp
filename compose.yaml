@@ -9,7 +9,7 @@ services:
     volumes:
       - ./docker/apache2/vhosts:/etc/apache2/sites-enabled
       - ./app:/var/www
-      - ./var/logs:/var/log/apache2 # apache_logs
+      - ./var/logs/apache2:/var/log/apache2 # apache_logs
     restart: always
     networks:
       - network
@@ -20,7 +20,7 @@ services:
     restart: always
     volumes:
       - ./var/db-data:/var/lib/mysql
-      - ./docs/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: app_db
@@ -63,6 +63,18 @@ services:
     #      - /dev/dri:/dev/dri #optional
     shm_size: "4gb" #optional
     restart: unless-stopped
+    networks:
+      - network
+  #Malicious scripts library
+  evil-storage:
+    container_name: evil-storage
+    image: php:8.2-apache
+    ports:
+      - "9002:80"
+    volumes:
+      - ./docker/evil-storage:/var/www/html
+      - ./var/logs/evil-storage:/var/log/apache2 # apache_logs
+    restart: always
     networks:
       - network
 #Network

@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller\Xss;
+namespace Template\home\Xss;
 
 use Entity\Comment;
 use Model\CommentModel;

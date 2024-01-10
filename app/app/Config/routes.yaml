@@ -2,6 +2,12 @@ index:
     uri: /
     controller: Controller\HomeController
     httpMethod: [GET]
+
+# XSS
+xss-home:
+    uri: /xss
+    controller: Controller\Xss\HomeController
+    httpMethod: [GET]
 xss-discover:
     uri: /xss/discover
     controller: Controller\Xss\DiscoverController
@@ -10,15 +16,19 @@ xss-stored:
     uri: /xss/stored
     controller: Controller\Xss\StoredController
     httpMethod: [GET,POST]
+
+# COMMAND INJECTION
 command-injection:
     uri: /command-injection/discover
     controller: Controller\CommandInjection\DiscoverController
     httpMethod: [GET]
+
+# TOOLS
 testdb:
-    uri: /testdb
+    uri: /tools/testdb
     controller: Controller\DataBaseTestController
     httpMethod: [GET]
 resetdb:
-    uri: /reset-db
+    uri: /tools/reset-db
     controller: Controller\ResetDbController
     httpMethod: [GET]

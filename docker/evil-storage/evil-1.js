@@ -1,0 +1,1 @@
+console.log("Evil 1 launched successfully");

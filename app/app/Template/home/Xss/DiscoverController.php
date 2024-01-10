@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller\Xss;
+namespace Template\home\Xss;
 
 use Studoo\EduFramework\Core\Controller\ControllerInterface;
 use Studoo\EduFramework\Core\Controller\Request;

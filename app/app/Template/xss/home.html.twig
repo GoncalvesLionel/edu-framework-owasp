@@ -1,0 +1,55 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <h1>{{ titre }}</h1>
+            <hr/>
+            <div class="card">
+                <div class="card-header h5">XSS Types</div>
+                <div class="card-body">
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Discovering XSS</h5>
+                                    <a class="stretched-link" href="/xss/discover"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Stored XSS</h5>
+                                    <a class="stretched-link" href="/xss/stored"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Reflected XSS</h5>
+                                    <a class="stretched-link" href="/xss/reflected"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Blind XSS</h5>
+                                    <a class="stretched-link" href="/xss/blind"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
