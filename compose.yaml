@@ -9,6 +9,7 @@ services:
     volumes:
       - ./docker/apache2/vhosts:/etc/apache2/sites-enabled
       - ./app:/var/www
+      - ./var/logs:/var/log/apache2 # apache_logs
     restart: always
     networks:
       - network
@@ -19,7 +20,7 @@ services:
     restart: always
     volumes:
       - ./var/db-data:/var/lib/mysql
-      - ./var/log:/var/log/apache2 # apache_logs
+      - ./docs/scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: app_db
@@ -68,6 +69,6 @@ services:
 networks:
   network:
 #Volumes
-volumes:
-  db-data:
-  log:
+#volumes:
+#  db-data:
+#  log:

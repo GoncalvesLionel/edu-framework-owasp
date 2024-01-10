@@ -21,8 +21,8 @@ class DiscoverController implements ControllerInterface
     public function execute(Request $request): string|null
     {
 
-        if($request->getHttpMethod() === "GET" && isset($_GET["text"])){
-            $text = $_GET["text"];
+        if($request->getHttpMethod() === "GET" && isset($_GET["email"])){
+            $email = $_GET["email"];
         }
 
         return TwigCore::getEnvironment()->render(
@@ -30,7 +30,7 @@ class DiscoverController implements ControllerInterface
             [
                 'titre'   => 'OWASP XSS',
                 'requete' => $request,
-                'text' =>  $_GET["text"] ?? ""
+                'email' =>  $email ?? ""
             ]
         );
     }

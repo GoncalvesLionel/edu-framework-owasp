@@ -6,6 +6,10 @@ xss-discover:
     uri: /xss/discover
     controller: Controller\Xss\DiscoverController
     httpMethod: [GET]
+xss-stored:
+    uri: /xss/stored
+    controller: Controller\Xss\StoredController
+    httpMethod: [GET,POST]
 command-injection:
     uri: /command-injection/discover
     controller: Controller\CommandInjection\DiscoverController
@@ -13,4 +17,8 @@ command-injection:
 testdb:
     uri: /testdb
     controller: Controller\DataBaseTestController
+    httpMethod: [GET]
+resetdb:
+    uri: /reset-db
+    controller: Controller\ResetDbController
     httpMethod: [GET]

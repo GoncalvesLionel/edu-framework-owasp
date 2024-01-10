@@ -13,22 +13,24 @@
        <div class="col-md-6 offset-3">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Form</h3>
+                    <h3 class="card-title">Submit your email</h3>
                 </div>
                 <div class="card-body">
-                    <form method="get" action="/xss/discover">
+                    <form method="get" action="/xss/discover" id="emailForm">
                         <div class="mb-3">
-                            <label for="textField" class="form-label">Text</label>
-                            <input type="text" class="form-control" id="textField" name="text" aria-describedby="textFieldHelp">
-                            <div id="textField" class="form-text">We'll never share your email with anyone else.</div>
+                            <label for="emailField" class="form-label">Text</label>
+                            <input type="text" class="form-control" id="emailField" name="email" aria-describedby="emailFieldHelp">
+                            <div id="emailField" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
-           <div class="alert alert-success mt-3" role="alert">
-               {{text | raw}}
-           </div>
+            {% if email is not empty %}
+               <div class="alert alert-success mt-3" role="alert">
+                   {{email | raw}}
+               </div>
+           {% endif %}
        </div>
    </div>
 
