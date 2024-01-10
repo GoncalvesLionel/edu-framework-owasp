@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+    <h1>{{ titre }}</h1>
+    {# Parcours de la variable etudiants #}
+    <h3>Health Check</h3>
+
+    <h3>Affichage Dump pour debug de variable</h3>
+    {# Test de la variable etudiants #}
+    {{ dd(status) }}
+
+{% endblock %}
+

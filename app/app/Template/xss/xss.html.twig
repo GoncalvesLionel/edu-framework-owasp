@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <h1>{{ titre }}</h1>
+            <hr/>
+        </div>
+    </div>
+   <div class="row">
+       <div class="col-md-6 offset-3">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Form</h3>
+                </div>
+                <div class="card-body">
+                    <form method="get" action="/xss">
+                        <div class="mb-3">
+                            <label for="textField" class="form-label">Text</label>
+                            <input type="text" class="form-control" id="textField" name="text" aria-describedby="textFieldHelp">
+                            <div id="textField" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+           <div class="alert alert-success mt-3" role="alert">
+               {{text | raw}}
+               {{dump(requete)}}
+           </div>
+       </div>
+   </div>
+
+{% endblock %}

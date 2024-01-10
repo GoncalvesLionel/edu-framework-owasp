@@ -1,0 +1,48 @@
+version: "3.8"
+services:
+  #apache2
+  apache2:
+    container_name: edu-owasp-apache2
+    build: ./docker/apache2
+    ports:
+      - "8000:80"
+    volumes:
+      - ./docker/apache2/vhosts:/etc/apache2/sites-enabled
+      - ./app:/var/www
+    restart: always
+    networks:
+      - edu-owasp-network
+  #Base de données MariaDB
+  db:
+    container_name: edu-owasp-db
+    image: mariadb:10.5.8
+    restart: always
+    volumes:
+      - ./var/db-data:/var/lib/mysql
+      - ./var/log:/var/log/apache2 # apache_logs
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app_db
+      TZ: Europe/Paris
+    networks:
+      - edu-owasp-network
+  #PHP My Admin
+  phpmyadmin:
+    container_name: edu-owasp-pma
+    image: phpmyadmin
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+    networks:
+      - edu-owasp-network
+#Network
+networks:
+  edu-owasp-network:
+#Volumes
+volumes:
+  db-data:
+  log:

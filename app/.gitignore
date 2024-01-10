@@ -1,0 +1,10 @@
+.idea/**
+
+# Managed by Composer
+vendor/
+var/
+composer.phar
+composer.lock
+/logs
+/db-data
+.env
