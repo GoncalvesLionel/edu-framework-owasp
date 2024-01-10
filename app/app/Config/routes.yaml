@@ -2,9 +2,9 @@ index:
     uri: /
     controller: Controller\HomeController
     httpMethod: [GET]
-xss:
-    uri: /xss
-    controller: Controller\XssController
+xss-discover:
+    uri: /xss/discover
+    controller: Controller\Xss\DiscoverController
     httpMethod: [GET]
 testdb:
     uri: /testdb

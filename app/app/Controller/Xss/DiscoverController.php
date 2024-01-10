@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace Controller\Xss;
 
 use Studoo\EduFramework\Core\Controller\ControllerInterface;
 use Studoo\EduFramework\Core\Controller\Request;
@@ -9,7 +9,7 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
-class XssController implements ControllerInterface
+class DiscoverController implements ControllerInterface
 {
     /**
      * @param Request $request Requête HTTP
@@ -26,7 +26,7 @@ class XssController implements ControllerInterface
         }
 
         return TwigCore::getEnvironment()->render(
-            'xss/xss.html.twig',
+            'xss/discover.html.twig',
             [
                 'titre'   => 'OWASP XSS',
                 'requete' => $request,
