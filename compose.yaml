@@ -2,7 +2,7 @@ version: "3.8"
 services:
   #apache2
   apache2:
-    container_name: edu-owasp-apache2
+    container_name: apache2
     build: ./docker/apache2
     ports:
       - "8000:80"
@@ -11,10 +11,10 @@ services:
       - ./app:/var/www
     restart: always
     networks:
-      - edu-owasp-network
+      - network
   #Base de données MariaDB
   db:
-    container_name: edu-owasp-db
+    container_name: db
     image: mariadb:10.5.8
     restart: always
     volumes:
@@ -25,10 +25,10 @@ services:
       MYSQL_DATABASE: app_db
       TZ: Europe/Paris
     networks:
-      - edu-owasp-network
+      - network
   #PHP My Admin
   phpmyadmin:
-    container_name: edu-owasp-pma
+    container_name: pma
     image: phpmyadmin
     restart: always
     depends_on:
@@ -38,10 +38,10 @@ services:
     environment:
       PMA_HOST: db
     networks:
-      - edu-owasp-network
+      - network
   ##Attack-box
   attack-box:
-    container_name: edu-owasp-attack-box
+    container_name: attack-box
     build: ./docker/attack-box
     security_opt:
       - seccomp:unconfined #optional
@@ -57,15 +57,16 @@ services:
     ports:
       - '3000:3000'
       - '3001:3001'
+      - '9001:9001'
     #    devices:
     #      - /dev/dri:/dev/dri #optional
     shm_size: "4gb" #optional
     restart: unless-stopped
     networks:
-      - edu-owasp-network
+      - network
 #Network
 networks:
-  edu-owasp-network:
+  network:
 #Volumes
 volumes:
   db-data:

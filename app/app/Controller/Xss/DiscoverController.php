@@ -30,7 +30,7 @@ class DiscoverController implements ControllerInterface
             [
                 'titre'   => 'OWASP XSS',
                 'requete' => $request,
-                'text' =>  $_GET["text"]
+                'text' =>  $_GET["text"] ?? ""
             ]
         );
     }
