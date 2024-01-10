@@ -39,6 +39,30 @@ services:
       PMA_HOST: db
     networks:
       - edu-owasp-network
+  ##Attack-box
+  attack-box:
+    container_name: edu-owasp-attack-box
+    build: ./docker/attack-box
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=100O
+      - PGID=1000
+      - TZ=Europe/Paris
+      #- SUBFOLDER=/ #optional
+      - TITLE=Edu OWASP Attack Box #optional
+    volumes:
+      - ./config:/config
+      #- /var/run/docker.sock:/var/run/docker.sock #optional
+    ports:
+      - '3000:3000'
+      - '3001:3001'
+    #    devices:
+    #      - /dev/dri:/dev/dri #optional
+    shm_size: "4gb" #optional
+    restart: unless-stopped
+    networks:
+      - edu-owasp-network
 #Network
 networks:
   edu-owasp-network:
