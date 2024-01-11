@@ -1,0 +1,44 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <h1>{{ titre }}</h1>
+            <hr/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Ping Tool</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/command-injection" class="hstack gap-2 align-items-center">
+                        <div>
+                            <label for="cmd" class="form-label">Ip Address</label>
+                            <input type="text" class="form-control" id="cmd" name="cmd" aria-describedby="ipAddressHelp">
+                            <div id="cmdHelp" class="form-text">Enter a command</div>
+                        </div>
+                        <div >
+                            <button type="submit" name="submit" class="btn btn-primary">Start ping</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% if trace is not null %}
+                <div class="alert alert-success mt-3" role="alert">
+                    {{trace | raw}}
+                </div>
+            {% endif %}
+            {% if output is not null %}
+                <div class="alert alert-success mt-3" role="alert">
+                    {{ dump(output) }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

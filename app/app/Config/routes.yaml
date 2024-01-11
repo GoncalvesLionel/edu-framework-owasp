@@ -31,9 +31,9 @@ xss-blind-target:
 
 # COMMAND INJECTION
 command-injection:
-    uri: /command-injection/discover
+    uri: /command-injection
     controller: Controller\CommandInjection\DiscoverController
-    httpMethod: [GET]
+    httpMethod: [GET,POST]
 
 # TOOLS
 testdb:
