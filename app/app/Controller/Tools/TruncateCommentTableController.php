@@ -1,12 +1,12 @@
 <?php
 
-namespace Controller;
+namespace Controller\Tools;
 
 use Model\CommentModel;
 use Studoo\EduFramework\Core\Controller\ControllerInterface;
 use Studoo\EduFramework\Core\Controller\Request;
 
-class ResetDbController implements ControllerInterface
+class TruncateCommentTableController implements ControllerInterface
 {
 
     public function execute(Request $request): string|null

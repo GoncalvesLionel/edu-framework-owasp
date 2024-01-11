@@ -16,6 +16,18 @@ xss-stored:
     uri: /xss/stored
     controller: Controller\Xss\StoredController
     httpMethod: [GET,POST]
+xss-reflected:
+    uri: /xss/reflected
+    controller: Controller\Xss\ReflectedController
+    httpMethod: [GET]
+xss-blind:
+    uri: /xss/blind
+    controller: Controller\Xss\BlindController
+    httpMethod: [GET,POST]
+xss-blind-target:
+    uri: /xss/blind/target
+    controller: Controller\Xss\BlindTargetController
+    httpMethod: [GET]
 
 # COMMAND INJECTION
 command-injection:
@@ -26,9 +38,13 @@ command-injection:
 # TOOLS
 testdb:
     uri: /tools/testdb
-    controller: Controller\DataBaseTestController
+    controller: Controller\Tools\DataBaseTestController
     httpMethod: [GET]
-resetdb:
-    uri: /tools/reset-db
-    controller: Controller\ResetDbController
+truncate-comments:
+    uri: /tools/truncate/comments
+    controller: Controller\Tools\TruncateCommentTableController
+    httpMethod: [GET]
+truncate-tickets:
+    uri: /tools/truncate/tickets
+    controller: Controller\Tools\TruncateTicketTableController
     httpMethod: [GET]

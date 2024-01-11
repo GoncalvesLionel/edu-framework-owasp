@@ -1,6 +1,6 @@
 <?php
 
-namespace Controller;
+namespace Controller\Tools;
 
 use Studoo\EduFramework\Core\Controller\ControllerInterface;
 use Studoo\EduFramework\Core\Controller\Request;

@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <h1>{{ titre }}</h1>
+            <hr/>
+            <div class="h-stack gap-2">
+                <a class="btn btn-danger" href="/xss">Back</a>
+                <a class="btn btn-warning" href="/tools/truncate/tickets">Reset DB</a>
+            </div>
+            <hr/>
+        </div>
+    </div>
+   <div class="row">
+       <div class="col-md-8 offset-2">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Form</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table table-striped table-responsive table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Message</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for ticket in tickets %}
+                            <tr>
+                                <td>{{ ticket.email | raw }}</td>
+                                <td>{{ ticket.message | raw }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+       </div>
+   </div>
+
+{% endblock %}
