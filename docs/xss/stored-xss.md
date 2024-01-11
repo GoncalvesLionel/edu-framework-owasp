@@ -25,6 +25,3 @@ dans les zones auxquelles d'autres utilisateurs ont accès ; un petit exemple po
 
 - Commentaires sur un blog
 - Informations sur le profil utilisateur
-- Listes de sites Web
-  Parfois, les développeurs pensent que limiter les valeurs d'entrée côté client est une protection suffisante,
-  donc changer les valeurs en quelque chose que l'application Web ne s'attendrait pas est une bonne source de découverte.

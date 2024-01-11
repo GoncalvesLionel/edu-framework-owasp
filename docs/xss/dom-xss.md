@@ -12,18 +12,11 @@ Un diagramme du DOM HTML est affiché ci-dessous :
 
 ![dom-xss-1](images/dom-xss-1.png)
 
-Si vous souhaitez en savoir plus sur le DOM et acquérir une compréhension plus approfondie, w3.org dispose d'une excellente ressource.
-
 **Exploiter le DOM**
 
-DOM Based XSS est l'endroit où l'exécution de JavaScript se produit directement dans le navigateur sans qu'aucune nouvelle page ne soit chargée ni aucune donnée soumise au code backend. L'exécution se produit lorsque le code JavaScript du site Web agit sur une saisie ou une interaction de l'utilisateur.
-
-
-**Exemple de scénario :**
-
-Le JavaScript du site Web récupère le contenu du window.location.hash paramètre, puis l'écrit sur la page dans
-la section en cours de visualisation. Le contenu du hachage n'est pas vérifié à la recherche de code malveillant,
-ce qui permet à un attaquant d'injecter le JavaScript de son choix sur la page Web.
+DOM Based XSS est l'endroit où l'exécution de JavaScript se produit directement dans le navigateur sans qu'aucune
+nouvelle page ne soit chargée ni aucune donnée soumise au code backend. L'exécution se produit lorsque le code
+JavaScript du site Web agit sur une saisie ou une interaction de l'utilisateur.
 
 **Impact potentiel :**
 
