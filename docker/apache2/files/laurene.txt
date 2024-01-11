@@ -1,0 +1,3 @@
+BadgeId: 9987
+AccessLevel: 2
+AccessLevelName: "User"

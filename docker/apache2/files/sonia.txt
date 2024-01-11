@@ -1,0 +1,3 @@
+BadgeId: 8674
+AccessLevel: 1
+AccessLevelName: "Administrator"

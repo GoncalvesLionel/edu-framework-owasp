@@ -13,7 +13,9 @@ RUN apt-get update \
      libzip-dev \
      libonig-dev \
      libxslt-dev \
-     libssh-dev
+     libssh-dev \
+    net-tools\
+    iputils-ping
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen && \

@@ -31,8 +31,12 @@ xss-blind-target:
 
 # COMMAND INJECTION
 command-injection:
-    uri: /command-injection
+    uri: /command-injection/discover
     controller: Controller\CommandInjection\DiscoverController
+    httpMethod: [GET,POST]
+command-injection-exploit:
+    uri: /command-injection/exploit
+    controller: Controller\CommandInjection\ExploitController
     httpMethod: [GET,POST]
 
 # TOOLS
