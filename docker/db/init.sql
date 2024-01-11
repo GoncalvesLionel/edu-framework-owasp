@@ -43,3 +43,29 @@ VALUES (1, 'Limmy Lesbieraufrai', 'Le premier commentaire'),
        (2, 'Evy Damant', 'Ceci est un deuxieme contenu de commentaire');
 
 -- --------------------------------------------------------
+
+--
+-- Structure de la table `comment`
+--
+
+DROP TABLE IF EXISTS `ticket`;
+CREATE TABLE IF NOT EXISTS `ticket`
+(
+    `id`   int(11)      NOT NULL AUTO_INCREMENT,
+    `email` varchar(255) NOT NULL,
+    `message` longtext     NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 4
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `comment`
+--
+
+INSERT INTO `ticket` (`id`, `email`, `message`)
+VALUES (1, 'michel@compny.dev', 'Je n\' arrive pas à sauvegarder mon fichier Word'),
+       (2, 'sandrine@compny.dev', 'Impossible de contacter le serveur de fichier');
+
+-- --------------------------------------------------------
