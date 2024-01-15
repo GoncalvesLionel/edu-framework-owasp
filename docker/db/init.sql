@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `ticket`
     `message` longtext     NOT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 4
+  AUTO_INCREMENT = 5
   DEFAULT CHARSET = utf8mb4
   COLLATE = utf8mb4_unicode_ci;
 
@@ -65,7 +65,42 @@ CREATE TABLE IF NOT EXISTS `ticket`
 --
 
 INSERT INTO `ticket` (`id`, `email`, `message`)
-VALUES (1, 'michel@compny.dev', 'Je n\' arrive pas à sauvegarder mon fichier Word'),
-       (2, 'sandrine@compny.dev', 'Impossible de contacter le serveur de fichier');
-
+VALUES (1, 'michel@company.dev', 'Je n\' arrive pas à sauvegarder mon fichier Word'),
+       (2, 'sandrine@company.dev', 'Impossible de contacter le serveur de fichier'),
+       (3, 'martine@company.dev', 'L\'imrpimante ne fonctionne plus'),
+       (4, 'david@company.dev', 'Mon ordinateur ne démarre plus')
+;
 -- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user`
+(
+    `id`   int(11)      NOT NULL AUTO_INCREMENT,
+    `username` varchar(255) NOT NULL,
+    `password` varchar(60)  NOT NULL,
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  AUTO_INCREMENT = 11
+  DEFAULT CHARSET = utf8mb4
+  COLLATE = utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `comment`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`)
+VALUES (1,'admin','pass123' ),
+       (2, 'alice','123456'),
+       (3, 'bob','buildit'),
+       (4, 'charlie','chaplin123'),
+       (5, 'dan','dawn2024'),
+       (6, 'elie','password'),
+       (7, 'flora','rose21'),
+       (8, 'gerard','golfgame'),
+       (9, 'harry','potter'),
+       (10, 'indiana','jones')
+       ;

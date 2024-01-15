@@ -35,6 +35,14 @@ class TicketModel
 
     }
 
+    public function fetch($id): Ticket
+    {
+        $request = $this->bdd->query("SELECT * FROM ticket WHERE id = $id");
+        $value = $request->fetch();
+        $ticket = new Ticket($value["id"],$value["email"],$value["message"]);
+        return $ticket;
+    }
+
     public function create(Ticket $ticket): void
     {
         $request = $this->bdd->prepare('INSERT INTO ticket(email, message) VALUES(:email, :message)');

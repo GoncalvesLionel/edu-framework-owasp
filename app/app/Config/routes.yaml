@@ -39,6 +39,24 @@ command-injection-exploit:
     controller: Controller\CommandInjection\ExploitController
     httpMethod: [GET,POST]
 
+# SQL INJECTION
+sql-injection:
+    uri: /sql-injection
+    controller: Controller\SqlInjection\HomeController
+    httpMethod: [GET]
+sql-injection-discover:
+    uri: /sql-injection/discover
+    controller: Controller\SqlInjection\DiscoverController
+    httpMethod: [GET,POST]
+sql-injection-auth-bypass:
+    uri: /sql-injection/auth-bypass
+    controller: Controller\SqlInjection\AuthBypassController
+    httpMethod: [GET,POST]
+sql-injection-blind:
+    uri: /sql-injection/blind
+    controller: Controller\SqlInjection\BlindAttackController
+    httpMethod: [GET,POST]
+
 # TOOLS
 testdb:
     uri: /tools/testdb

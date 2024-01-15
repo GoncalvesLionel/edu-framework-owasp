@@ -1,0 +1,49 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <h1>{{ titre }}</h1>
+            <hr/>
+            <div class="h-stack gap-2">
+                <a class="btn btn-danger" href="/sql-injection">Back</a>
+            </div>
+            <hr/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Authenfication</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/sql-injection/auth-bypass" class="hstack gap-2 align-items-center">
+                        <div class="col-5">
+                            <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                        </div>
+                        <div class="col-5">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        </div>
+                        <div class="col-2">
+                            <button type="submit" name="submit" class="btn btn-primary">Connect</button>
+                        </div>
+                    </form>
+                        {% if auth %}
+                            <div class="alert alert-success mt-3" role="alert">
+                                <h4 class="alert-heading">Authentification réussie</h4>
+                                <p>Vous êtes connecté en tant que <strong>{{ auth.username }}</strong></p>
+                            </div>
+                        {% else %}
+                            <div class="alert alert-danger mt-3" role="alert">
+                                <h4 class="alert-heading">Authentification échouée</h4>
+                                <p>Le nom d'utilisateur ou le mot de passe est incorrect</p>
+                            </div>
+                        {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

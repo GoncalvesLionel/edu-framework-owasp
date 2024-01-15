@@ -1,0 +1,47 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ titre }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <h1>{{ titre }}</h1>
+            <hr/>
+            <div class="h-stack gap-2">
+                <a class="btn btn-danger" href="/sql-injection">Back</a>
+            </div>
+            <hr/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Ticket</h3>
+                </div>
+                <div class="card-body">
+                    <form method="get" action="/sql-injection/discover" class="hstack gap-2 align-items-center">
+                        <div class="col-10">
+                            <input type="text" class="form-control" id="id" name="id" placeholder="Ticket ID">
+                        </div>
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary">Get Ticket</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% if ticket %}
+                <hr/>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Ticket N° {{ ticket.id }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Email : {{ ticket.email }}</p>
+                        <p>Message : {{ ticket.message }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
