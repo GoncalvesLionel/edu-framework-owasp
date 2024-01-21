@@ -31,18 +31,18 @@
                             <button type="submit" name="submit" class="btn btn-primary">Connect</button>
                         </div>
                     </form>
-                        {% if auth %}
+                        {% if auth is not null %}
                             <div class="alert alert-success mt-3" role="alert">
                                 <h4 class="alert-heading">Authentification réussie</h4>
                                 <p>Vous êtes connecté en tant que <strong>{{ auth.username }}</strong></p>
                             </div>
-                        {% else %}
+                        {% elseif auth is null and errors is not null %}
                             <div class="alert alert-danger mt-3" role="alert">
                                 <h4 class="alert-heading">Authentification échouée</h4>
-                                <p>Le nom d'utilisateur ou le mot de passe est incorrect</p>
                             </div>
                         {% endif %}
                 </div>
+                {{ dump(auth, errors) }}
             </div>
         </div>
     </div>

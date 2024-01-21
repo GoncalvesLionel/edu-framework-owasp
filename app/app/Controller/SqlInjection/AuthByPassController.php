@@ -13,11 +13,16 @@ class AuthByPassController implements ControllerInterface
 
     public function execute(Request $request): string|null
     {
+
         if (isset($_POST['submit'])) {
             $username = $_POST["username"];
             $password = $_POST["password"];
             $userModel = new UserModel();
             $auth = $userModel->authenticate($username, $password);
+
+            if(!$auth){
+                $errors = "Erreur d'authentification";
+            }
         }
 
         return TwigCore::getEnvironment()->render(
@@ -25,7 +30,8 @@ class AuthByPassController implements ControllerInterface
             [
                 'titre'   => 'OWASP SQL Injection - Auth bypass',
                 'requete' => $request,
-                'auth'=> $auth ?? null
+                'auth'=> $auth ?? null,
+                'errors'=> $errors ?? null,
             ]
         );
     }
