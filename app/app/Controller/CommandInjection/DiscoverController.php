@@ -22,6 +22,7 @@ class DiscoverController implements ControllerInterface
             'command-injection/discover.html.twig',
             [
                 'titre'   => 'OWASP Command-injection - Discover',
+                'cmd'=> $_POST["cmd"] ?? null,
                 'output' => $output ?? null,
             ]
         );

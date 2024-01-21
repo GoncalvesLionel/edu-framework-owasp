@@ -10,6 +10,7 @@ services:
       - ./docker/apache2/vhosts:/etc/apache2/sites-enabled
       - ./app:/var/www
       - ./var/logs/apache2:/var/log/apache2 # apache_logs
+      - ./docker/apache2/files:/home/badges-access/files
     restart: always
     networks:
       - network
