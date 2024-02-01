@@ -2,7 +2,7 @@ version: "3.8"
 services:
   #apache2
   apache2:
-    container_name: apache2
+    container_name: owasp-apache2
     build: ./docker/apache2
     ports:
       - "8000:80"
@@ -16,7 +16,7 @@ services:
       - network
   #Base de données MariaDB
   db:
-    container_name: db
+    container_name: owasp-db
     image: mariadb:10.5.8
     restart: always
     volumes:
@@ -43,7 +43,7 @@ services:
       - network
   ##Attack-box
   attack-box:
-    container_name: attack-box
+    container_name: owasp-attack-box
     build: ./docker/attack-box
     security_opt:
       - seccomp:unconfined #optional
@@ -68,7 +68,7 @@ services:
       - network
   #Malicious scripts library
   evil-storage:
-    container_name: evil-storage
+    container_name: owasp-evil-storage
     image: php:8.2-apache
     ports:
       - "9002:80"
