@@ -15,7 +15,11 @@ RUN apt-get update \
      libxslt-dev \
      libssh-dev \
     net-tools\
-    iputils-ping
+    iputils-ping\
+    curl\
+    python3\
+    python3-pip\
+    python3-cryptography
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
     echo "fr_FR.UTF-8 UTF-8" >> /etc/locale.gen && \
